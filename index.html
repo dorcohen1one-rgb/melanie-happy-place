@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f4ee">
+  <meta name="description" content="A tiny adventure, a fluffy friend, and a little happiness. Made especially for Melanie.">
+  <title>Melanie's Happy Place · A little gift for you</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='26' fill='%23f9e7e5'/%3E%3Cpath d='M50 76C-6 44 27 13 50 35C73 13 106 44 50 76' fill='%23d86579'/%3E%3C/svg%3E">
+  <style>
+    :root{--ink:#3e4943;--soft:#748078;--cream:#f8f4ee;--green:#496b54;--rose:#d47483;--line:#dfdfd3;--serif:Georgia,'Times New Roman',serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Avenir Next',Avenir,'Segoe UI',sans-serif;font-size:15px;-webkit-font-smoothing:antialiased}button{font:inherit;cursor:pointer}button:focus-visible,canvas:focus-visible{outline:3px solid var(--rose);outline-offset:5px}button:disabled{cursor:default}svg{display:block}button{color:inherit} [hidden]{display:none!important}
+    .page{max-width:1260px;margin:auto;padding:34px 52px 22px}.header{display:flex;align-items:center;justify-content:space-between;padding-bottom:26px;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font-size:15px;letter-spacing:-.2px}.brand-icon{width:31px;height:31px}.sound{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:transparent;border-radius:30px;padding:9px 15px;font-size:12px}.sound svg{width:16px;height:16px}.sound:hover{background:#eeeadd}.sound[aria-pressed=true]{background:#e5eadf}
+    .hero{display:grid;grid-template-columns:.86fr 1.14fr;align-items:center;gap:54px;padding:58px 0 46px;min-height:610px}.intro{padding-bottom:8px}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--green);font-size:10px;font-weight:600;letter-spacing:2.2px;text-transform:uppercase;margin:0 0 24px}.tiny-star{font-size:19px;color:#af9854}h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,4.7vw,65px);line-height:1.07;letter-spacing:-2.8px;margin:0 0 26px}h1 em{font-weight:400;color:var(--green)}.description{max-width:340px;color:var(--soft);font-size:15px;line-height:1.85;margin:0 0 32px}.primary{border:none;background:var(--green);color:#fffdf6;border-radius:40px;padding:16px 28px;display:inline-flex;align-items:center;justify-content:center;gap:27px;min-width:172px;transition:background .2s,transform .2s}.primary:hover{background:#3b5945;transform:translateY(-2px)}.primary svg{width:19px;height:19px}.whisper{font-size:11px;color:var(--soft);margin:15px 0 0}.instructions{margin-top:25px}.instructions p{line-height:1.75;color:var(--soft);font-size:13px;max-width:310px}.instructions .label{color:var(--green);font-size:11px;letter-spacing:1.3px;text-transform:uppercase;font-weight:600}.controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}.secondary{background:transparent;border:1px solid #ccd2c7;border-radius:30px;padding:10px 18px;font-size:12px}.secondary:hover{background:#eaece2}.progress{display:flex;gap:5px;margin-top:19px}.progress span{font-size:25px;line-height:1;color:#d9ded2;transition:color .2s,transform .2s}.progress span.filled{color:var(--rose);animation:pop .3s}.counter{font-size:12px;color:var(--soft);margin-top:11px}.scene-wrap{position:relative;width:100%;max-width:620px;justify-self:end;transform:rotate(1deg)}.scene{border:8px solid #fffdf8;border-radius:25px;box-shadow:0 16px 45px #4d594314,0 2px 3px #4d594312;overflow:hidden;position:relative;background:#eee9ef;aspect-ratio:1.03}.scene canvas{width:100%;height:100%;display:block;touch-action:pan-y;cursor:default}.scene.playing canvas{touch-action:none;cursor:ew-resize}.scene-top{position:absolute;left:19px;right:19px;top:19px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}.postcard-label{font-size:9px;letter-spacing:2px;color:#6c7073}.scene-tag{font-size:10px;background:#fffdf1a8;backdrop-filter:blur(4px);padding:7px 10px;border-radius:20px;color:#76736e}.scene-bottom{position:absolute;bottom:16px;left:0;right:0;text-align:center;pointer-events:none;font-size:11px;color:#627658;letter-spacing:.3px}.sticker{position:absolute;right:-17px;bottom:36px;width:94px;height:94px;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#f2dfaa;border:1px dashed #c0a866;outline:5px solid #f2dfaa;border-radius:50%;transform:rotate(-11deg);font-size:10px;line-height:1.6;color:#71613e;box-shadow:0 4px 15px #6e60361a;pointer-events:none}.sticker span{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.3}.caption{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;font-size:11px;color:var(--soft);transform:rotate(-1deg)}.caption svg{width:14px;height:14px;color:var(--rose)}.toast{position:absolute;left:50%;top:15%;transform:translate(-50%,-10px);background:#fffdf6ed;color:#51644b;padding:11px 18px;border-radius:30px;font-size:12px;text-align:center;white-space:nowrap;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none;z-index:2;box-shadow:0 5px 20px #48544510}.toast.visible{opacity:1;transform:translate(-50%,0)}
+    .little-things{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:23px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.little-thing{display:flex;align-items:center;gap:14px}.little-thing svg{width:28px;height:28px;flex-shrink:0;color:var(--green)}.little-thing strong{display:block;font-size:12px;font-weight:500;margin-bottom:4px}.little-thing span{color:var(--soft);font-size:11px}.footer{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;color:#8e9489;padding-top:24px}.footer .heart{color:var(--rose)}
+    dialog{border:none;background:#fffaf2;color:var(--ink);padding:0;width:min(475px,calc(100vw - 32px));border-radius:27px;box-shadow:0 25px 90px #34443733;max-height:90dvh;overflow:auto}dialog::backdrop{background:#3c514966;backdrop-filter:blur(5px)}.letter{padding:33px 35px 31px;text-align:center;position:relative}.close-letter{position:absolute;right:13px;top:11px;width:33px;height:33px;border:0;border-radius:50%;background:#eeeade;font-size:20px;color:#697663}.letter .flower{font-size:45px;margin:0 0 17px;color:#d78b90}.letter .eyebrow{justify-content:center;font-size:9px;margin-bottom:18px}.letter h2{font-family:var(--serif);font-weight:400;font-size:33px;line-height:1.2;letter-spacing:-1px;margin:0 0 20px}.letter h2 em{color:var(--green)}.letter p{color:var(--soft);line-height:1.9;font-size:14px;margin:0 0 19px}.letter .signature{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--green);margin-top:23px}.letter .primary{margin-top:5px;font-size:13px;min-width:170px}.letter .secondary{display:block;margin:12px auto 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.mobile-controls{display:none;position:absolute;left:17px;right:17px;bottom:38px;justify-content:space-between;pointer-events:none}.mobile-controls button{pointer-events:auto;border:1px solid #ffffff91;border-radius:50%;background:#fffdf1ce;backdrop-filter:blur(3px);width:45px;height:45px;font-size:22px;color:var(--green);touch-action:none;user-select:none}.mobile-controls.active{display:flex}
+    h1 .personal-name{display:block;font-size:.58em;letter-spacing:-.7px;color:var(--rose);margin-bottom:15px;font-style:italic}
+    @keyframes pop{50%{transform:scale(1.35)}}@media(min-width:760px){.mobile-controls.active{display:none}}@media(max-width:950px){.page{padding:26px 30px 20px}.hero{gap:30px;padding:45px 0;min-height:auto}h1{font-size:51px}.sticker{right:-7px;width:82px;height:82px}.description{font-size:14px}}@media(max-width:759px){.page{padding:20px 23px}.header{padding-bottom:19px}.brand{font-size:13px}.sound{padding:8px 10px}.sound .sound-word{display:none}.hero{grid-template-columns:1fr;gap:33px;padding:36px 0 32px}.intro{padding:0;text-align:center}.eyebrow{justify-content:center;font-size:9px;margin-bottom:17px}h1{font-size:48px;letter-spacing:-2px;margin-bottom:19px}.description{margin:0 auto 22px;max-width:300px;font-size:14px;line-height:1.75}.primary{padding:14px 24px}.whisper{margin-top:11px}.scene-wrap{max-width:470px;justify-self:center}.scene{border-width:6px;border-radius:22px;aspect-ratio:1.05}.scene-top{left:14px;right:14px;top:14px}.postcard-label{font-size:8px;letter-spacing:1.5px}.sticker{bottom:29px;right:-5px;width:74px;height:74px;font-size:8px}.sticker span{font-size:19px}.caption{margin-top:15px}.little-things{gap:14px;padding:21px 0}.little-thing{flex-direction:column;gap:10px;text-align:center}.little-thing strong{font-size:10px}.little-thing span{font-size:10px;line-height:1.5;display:block}.little-thing svg{width:23px;height:23px}.footer{font-size:9px;padding-top:20px}.instructions{margin-top:0}.instructions p{margin:12px auto;font-size:12px}.progress{justify-content:center;margin-top:10px}.controls{justify-content:center;margin-top:12px}.counter{margin-top:8px}.playing-layout .hero{gap:22px;padding-top:23px}.playing-layout h1{font-size:35px;letter-spacing:-1px;margin-bottom:10px}.playing-layout .eyebrow{margin-bottom:10px}.playing-layout .scene-wrap{scroll-margin-top:12px}.playing-layout .description{display:none}.letter{padding:30px 26px}.letter h2{font-size:30px}.toast{font-size:10px;padding:9px 13px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.primary:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <div class="page" id="page">
+    <header class="header">
+      <div class="brand"><svg class="brand-icon" viewBox="0 0 40 40" aria-hidden="true"><g fill="#d98591"><ellipse cx="20" cy="11" rx="5" ry="8"/><ellipse cx="20" cy="29" rx="5" ry="8"/><ellipse cx="11" cy="20" rx="8" ry="5"/><ellipse cx="29" cy="20" rx="8" ry="5"/><ellipse cx="13.5" cy="13.5" rx="5" ry="7" transform="rotate(-45 13.5 13.5)"/><ellipse cx="26.5" cy="26.5" rx="5" ry="7" transform="rotate(-45 26.5 26.5)"/><ellipse cx="26.5" cy="13.5" rx="5" ry="7" transform="rotate(45 26.5 13.5)"/><ellipse cx="13.5" cy="26.5" rx="5" ry="7" transform="rotate(45 13.5 26.5)"/></g><circle cx="20" cy="20" r="6" fill="#edcc7c"/></svg><span>Melanie's happy place</span></div>
+      <button class="sound" id="sound" aria-pressed="false" aria-label="Turn sound on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 4 5 8H2v8h3l5 4Z"/><path id="sound-waves" d="m16 8 6 8m0-8-6 8"/></svg><span class="sound-word">Sound</span><span id="sound-state">off</span></button>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="title">
+        <div class="intro">
+          <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> Made especially for Melanie</p>
+          <h1 id="title"><span class="personal-name">Melanie,</span>A little happiness,<br><em>just for you.</em></h1>
+          <p class="description">A tiny adventure, a fluffy friend, and a few good things to collect. This little corner of the world is yours.</p>
+          <div id="welcome">
+            <button class="primary" id="start">Let's play, Melanie<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+            <p class="whisper">No rush. Just a little joy.</p>
+          </div>
+          <div class="instructions" id="instructions" hidden>
+            <div class="label" id="mission">Collect 8 little hearts</div>
+            <p id="help">Move Luna left and right to catch the hearts.<br>Drag, tap the meadow, or use ← → keys.</p>
+            <div class="progress" aria-hidden="true" id="progress"></div>
+            <div class="counter" id="counter" role="status" aria-live="polite">0 of 8 hearts collected</div>
+            <div class="controls">
+              <button class="secondary" id="pause" aria-pressed="false">Pause</button>
+              <button class="secondary" id="restart">Start again</button>
+              <button class="secondary" id="open-letter" hidden>Open your surprise ↗</button>
+            </div>
+          </div>
+        </div>
+        <div class="scene-wrap" id="scene-wrap">
+          <div class="scene" id="scene">
+            <canvas id="game" tabindex="0" aria-label="Luna the llama in a mountain meadow. Start the game, then use the left and right arrow keys to catch hearts."></canvas>
+            <div class="scene-top"><span class="postcard-label">MELANIE'S HAPPY PLACE</span><span class="scene-tag" id="scene-tag">a tiny escape ✧</span></div>
+            <div class="toast" id="toast" aria-hidden="true"></div>
+            <div class="mobile-controls" id="mobile-controls"><button id="left" aria-label="Move Luna left">←</button><button id="right" aria-label="Move Luna right">→</button></div>
+            <div class="scene-bottom" id="scene-bottom">Meet Luna, Melanie. She's happy you're here.</div>
+          </div>
+          <div class="sticker" id="sticker" aria-hidden="true">a pocketful of<span>good things</span>just for you</div>
+          <div class="caption"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20S2 14 2 7a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 7-10 13-10 13Z"/></svg>A small game. A little smile. Just for Melanie.</div>
+        </div>
+      </section>
+      <section class="little-things" aria-label="Little things to enjoy">
+        <div class="little-thing"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 23V8c0-5 4-5 4 0v4h4V6c0-5 4-5 4 0v15l-4 4v4m-8-8H7c-3 0-3-5 0-5h5m0 8v5"/><path d="M17 16h1m4 0h1"/></svg><div><strong>A fluffy little friend</strong><span>Luna is on your team.</span></div></div>
+        <div class="little-thing"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M16 27S3 19 3 10a7 7 0 0 1 13-3 7 7 0 0 1 13 3c0 9-13 17-13 17Z"/></svg><div><strong>Eight little hearts</strong><span>Catch a pocketful of joy.</span></div></div>
+        <div class="little-thing"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><rect x="4" y="12" width="24" height="17" rx="2"/><path d="M2 12V8h28v4H2Zm14-4v21m0-21C1 9 6-7 16 8Zm0 0c15 1 10-15 0 0Z"/></svg><div><strong>Something just for you</strong><span>A surprise is waiting.</span></div></div>
+      </section>
+    </main>
+    <footer class="footer"><span>For Melanie, with a little extra sunshine <span class="heart">♡</span></span><span>Made to make your day a little sweeter.</span></footer>
+  </div>
+  <dialog id="letter" aria-labelledby="letter-title">
+    <div class="letter">
+      <button class="close-letter" id="close-letter" aria-label="Close your surprise">×</button>
+      <div class="flower" aria-hidden="true">✿</div>
+      <p class="eyebrow">A little note for you</p>
+      <h2 id="letter-title">Melanie, the world is<br>a little brighter<br><em>with you in it.</em></h2>
+      <p>I made this little place to bring a smile to your day. A few hearts, one very fluffy llama, and a reminder that you deserve lovely little things.</p>
+      <p>I hope something good finds you today.<br>And if it hasn't yet, let this be the first.</p>
+      <p class="signature">Made especially for you. ♡</p>
+      <button class="primary" id="more-joy">A little more joy ✦</button>
+      <button class="secondary" id="play-again">Play again</button>
+    </div>
+  </dialog>
+  <script>
+  (() => {
+    'use strict';
+    const $ = id => document.getElementById(id);
+    const canvas = $('game'), ctx = canvas.getContext('2d'), TOTAL = 8;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let width = 550, height = 530, mode = 'welcome', paused = false, collected = 0;
+    let lunaX = .5, targetX = .5, direction = 0, objects = [], sparks = [], time = 0, last = 0, nextHeart = .5;
+    let soundOn = false, audio = null, toastUntil = 0;
+    const flowers = Array.from({length:24},(_,i)=>({x:(i*.381966)%1,y:.83+(i%4)*.032,size:4+(i%3),color:['#e59baa','#e8d594','#ebbdc1','#c7b4d7'][i%4]}));
+    const messages = ['A tiny win for Melanie. ♡','You deserve good things.','Luna thinks you are lovely, Melanie.','A little sunshine, collected.','One more reason to smile, Melanie.','Sending a little happy thought.','Melanie, your surprise is almost here…','Melanie’s pocketful of happiness!'];
+    $('progress').innerHTML = '<span>♥</span>'.repeat(TOTAL);
+    function rounded(x,y,w,h,r,color){ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
+    function ellipse(x,y,rx,ry,color){ctx.fillStyle=color;ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fill()}
+    function path(points,color){ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(...points[0]);points.slice(1).forEach(p=>ctx.lineTo(...p));ctx.closePath();ctx.fill()}
+    function heart(x,y,size,color,rotation=0){ctx.save();ctx.translate(x,y);ctx.rotate(rotation);ctx.scale(size/30,size/30);ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(0,9);ctx.bezierCurveTo(-35,-10,-17,-29,0,-13);ctx.bezierCurveTo(17,-29,35,-10,0,9);ctx.fill();ctx.restore()}
+    function star(x,y,r,color){ctx.fillStyle=color;ctx.beginPath();for(let i=0;i<8;i++){const a=Math.PI*i/4-Math.PI/2,v=i%2?r*.3:r;const p=[x+Math.cos(a)*v,y+Math.sin(a)*v];i?ctx.lineTo(...p):ctx.moveTo(...p)}ctx.closePath();ctx.fill()}
+    function cloud(x,y,s){ctx.save();ctx.translate(x,y);ctx.scale(s,s);ellipse(0,3,30,9,'#fffdf6b5');ellipse(-13,-3,14,13,'#fffdf6b5');ellipse(8,-8,19,18,'#fffdf6b5');ellipse(28,0,14,11,'#fffdf6b5');ctx.restore()}
+    function flower(x,y,s,color){ctx.save();ctx.translate(x,y);ctx.strokeStyle='#839877';ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(3,10,1,16);ctx.stroke();ellipse(5,10,4,2,'#9aad84');for(let i=0;i<5;i++){const a=i*Math.PI*2/5;ellipse(Math.cos(a)*s*.7,Math.sin(a)*s*.7,s*.55,s*.55,color)}ellipse(0,0,s*.37,s*.37,'#efd993');ctx.restore()}
+    function drawLuna(x,y,s){
+      const walking=mode==='playing'&&!paused?Math.sin(time*12)*Math.min(Math.abs(targetX-lunaX)*40,1):0;
+      ctx.save();ctx.translate(x,y+(reducedMotion?0:Math.sin(time*2.5)*2));ctx.scale(s,s);
+      ellipse(0,65,57,8,'#52674718');
+      rounded(-34,33,14,33,7,'#f6efe4');rounded(19,33,14,33,7,'#f6efe4');
+      rounded(-35,60+walking*3,17,8,4,'#738175');rounded(18,60-walking*3,17,8,4,'#738175');
+      ellipse(0,21,44,37,'#fffaf0');ellipse(-36,10,12,13,'#fffaf0');ellipse(35,18,15,14,'#fffaf0');
+      rounded(3,-42,29,64,15,'#fffaf0');ellipse(16,-41,27,23,'#fffaf0');
+      rounded(-1,-85,11,35,6,'#fffaf0');rounded(23,-85,11,35,6,'#fffaf0');rounded(2,-80,5,24,3,'#dfb5b3');rounded(26,-80,5,24,3,'#dfb5b3');
+      ellipse(1,-55,9,8,'#fffaf0');ellipse(15,-62,10,7,'#fffaf0');ellipse(29,-54,9,8,'#fffaf0');
+      ellipse(6,-41,2.4,3.1,'#465048');ellipse(27,-41,2.4,3.1,'#465048');ellipse(0,-31,5.5,3,'#efbdba');ellipse(32,-31,5.5,3,'#efbdba');
+      ellipse(17,-28,12,9,'#f0e8db');ellipse(17,-31,3,2,'#667167');ctx.strokeStyle='#667167';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(17,-30);ctx.lineTo(17,-25);ctx.moveTo(13,-26);ctx.quadraticCurveTo(17,-21,21,-26);ctx.stroke();
+      rounded(1,-13,32,10,4,'#cf7e89');path([[23,-6],[34,-4],[28,12],[22,6]],'#cf7e89');
+      rounded(-35,8,54,31,5,'#98aaa0');rounded(-34,11,52,6,2,'#e6c383');rounded(-34,30,52,5,2,'#e6c383');
+      for(let i=0;i<4;i++)path([[-28+i*12,23],[-23+i*12,18],[-18+i*12,23],[-23+i*12,28]],'#f7eee0');
+      ctx.strokeStyle='#b69064';ctx.lineWidth=3;ctx.beginPath();ctx.arc(-8,37,29,Math.PI,0);ctx.stroke();rounded(-34,33,53,31,5,'#d2af7e');
+      ctx.strokeStyle='#b48f60';ctx.lineWidth=1;for(let i=0;i<5;i++){ctx.beginPath();ctx.moveTo(-32,39+i*5);ctx.lineTo(17,39+i*5);ctx.stroke()}for(let i=0;i<7;i++){ctx.beginPath();ctx.moveTo(-28+i*7,35);ctx.lineTo(-28+i*7,62);ctx.stroke()}
+      heart(-8,51,10,'#fff2d8');ctx.restore();
+    }
+    function background(){
+      const w=width,h=height;
+      const gradient=ctx.createLinearGradient(0,0,0,h);gradient.addColorStop(0,'#e7e5ef');gradient.addColorStop(.53,'#f3e5d9');gradient.addColorStop(1,'#eee4c8');ctx.fillStyle=gradient;ctx.fillRect(0,0,w,h);
+      ellipse(w*.72,h*.27,w*.108,w*.108,'#f5d99c');ellipse(w*.72,h*.27,w*.136,w*.136,'#f9dc9c26');
+      cloud(w*.22+(reducedMotion?0:Math.sin(time*.15)*7),h*.18,.95*w/550);cloud(w*.8,h*.13,.65*w/550);
+      const mountains=[[0,.54,.28,.29,.55,.56],[.32,.55,.63,.35,.91,.56],[.64,.59,.85,.39,1.1,.59]];
+      mountains.forEach((m,i)=>{path([[w*m[0],h*m[1]],[w*m[2],h*m[3]],[w*m[4],h*m[5]]],['#b7bcc4','#c3c3c9','#ccd0cb'][i]);const peakX=w*m[2],peakY=h*m[3];path([[peakX-w*.055,peakY+h*.052],[peakX,peakY],[peakX+w*.077,peakY+h*.076],[peakX+w*.019,peakY+h*.055],[peakX-w*.01,peakY+h*.064]],'#f5f1e9')});
+      ctx.fillStyle='#b8c4ab';ctx.beginPath();ctx.moveTo(0,h*.59);ctx.bezierCurveTo(w*.23,h*.39,w*.43,h*.64,w,h*.52);ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.fill();
+      ctx.fillStyle='#d0d4ac';ctx.beginPath();ctx.moveTo(0,h*.68);ctx.bezierCurveTo(w*.27,h*.52,w*.66,h*.68,w,h*.63);ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.fill();
+      ctx.fillStyle='#e2dfb8';ctx.beginPath();ctx.moveTo(0,h*.81);ctx.bezierCurveTo(w*.28,h*.66,w*.73,h*.86,w,h*.71);ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.fill();
+      ctx.fillStyle='#eff0d9';ctx.beginPath();ctx.moveTo(w*.44,h);ctx.bezierCurveTo(w*.58,h*.84,w*.48,h*.78,w*.67,h*.66);ctx.bezierCurveTo(w*.43,h*.79,w*.44,h*.88,w*.26,h);ctx.fill();
+      flowers.forEach(f=>flower(f.x*w,f.y*h,f.size*w/550,f.color));
+      if(mode==='welcome'){heart(w*.29,h*.33,22*w/550,'#d78a98',-.24);heart(w*.55,h*.2,13*w/550,'#e9a7ac',.2);heart(w*.83,h*.47,17*w/550,'#d78a98',.15);star(w*.43,h*.29,8*w/550,'#c3ac6d');star(w*.16,h*.42,7*w/550,'#fffaf1');star(w*.89,h*.31,6*w/550,'#fffaf1')}
+      if(mode==='complete'){for(let i=0;i<9;i++)heart(w*(.14+i*.091),h*(.21+(i%3)*.12),[13,20,15][i%3]*w/550,['#d8909b','#dea0a4','#e9b79f'][i%3],Math.sin(i)*.3)}
+    }
+    function resize(){const box=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);width=box.width;height=box.height;canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0)}
+    new ResizeObserver(resize).observe(canvas);
+    function tone(frequency=660){if(!soundOn||!audio)return;try{const osc=audio.createOscillator(),gain=audio.createGain();osc.type='sine';osc.frequency.setValueAtTime(frequency,audio.currentTime);gain.gain.setValueAtTime(.08,audio.currentTime);gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+.35);osc.connect(gain);gain.connect(audio.destination);osc.start();osc.stop(audio.currentTime+.35)}catch{}}
+    function updateCounter(){$('counter').textContent=`${collected} of ${TOTAL} hearts collected`;$('progress').querySelectorAll('span').forEach((s,i)=>s.classList.toggle('filled',i<collected))}
+    function toast(message){$('toast').textContent=message;$('toast').classList.add('visible');toastUntil=time+2.3}
+    function burst(x,y,count=14){for(let i=0;i<count;i++)sparks.push({x,y,vx:(Math.random()-.5)*width*.45,vy:-Math.random()*height*.45,life:1.2+Math.random()*.6,color:['#d18a95','#e7c77e','#faf6df','#9aaf8d'][i%4],size:2+Math.random()*4})}
+    function start(){
+      if($('letter').open)$('letter').close();mode='playing';paused=false;collected=0;objects=[];sparks=[];direction=0;lunaX=targetX=.5;nextHeart=.35;
+      $('page').classList.add('playing-layout');$('scene').classList.add('playing');$('welcome').hidden=true;$('instructions').hidden=false;$('sticker').hidden=true;$('mobile-controls').classList.add('active');
+      $('title').innerHTML='<span class="personal-name">Melanie,</span>A pocketful<br><em>of happiness.</em>';$('mission').textContent='Collect 8 little hearts';$('help').innerHTML='Melanie, move Luna to catch the hearts.<br>Drag, tap the meadow, or use ← → keys.';
+      $('pause').hidden=false;$('pause').textContent='Pause';$('pause').setAttribute('aria-pressed','false');$('open-letter').hidden=true;$('scene-tag').textContent='Melanie + Luna = a team';$('scene-bottom').textContent='Missed one? Another is on its way. ♡';
+      updateCounter();tone(523);canvas.focus({preventScroll:true});
+      if(window.innerWidth<760)$('scene-wrap').scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'center'});
+    }
+    function setPaused(value){if(mode!=='playing')return;paused=value;direction=0;$('pause').textContent=paused?'Resume':'Pause';$('pause').setAttribute('aria-pressed',String(paused));$('scene-tag').textContent=paused?'a little breather ☁':'Melanie + Luna = a team';$('scene-bottom').textContent=paused?'Take your time, Melanie. Luna will wait.':'Missed one? Another is on its way. ♡'}
+    function complete(){mode='complete';paused=false;objects=[];direction=0;targetX=.5;$('scene').classList.remove('playing');$('mobile-controls').classList.remove('active');$('pause').hidden=true;$('open-letter').hidden=false;$('title').innerHTML='<span class="personal-name">Melanie,</span>All these good things,<br><em>just for you.</em>';$('mission').textContent='Melanie’s pocketful of happiness';$('help').textContent='You did it, Melanie. Luna has a little surprise for you.';$('scene-tag').textContent='8 hearts for Melanie ♡';$('scene-bottom').textContent='Melanie, your happy place is always here.';burst(width*.5,height*.5,60);tone(880);setTimeout(()=>{if(mode==='complete')$('letter').showModal()},750)}
+    function collect(item){collected++;updateCounter();burst(item.x*width,item.y*height);tone(440+collected*55);toast(messages[collected-1]);if(collected===TOTAL)complete()}
+    function frame(stamp){
+      const dt=Math.min((stamp-last)/1000,.04)||.016;last=stamp;if(!document.hidden)time+=dt;
+      if(mode==='playing'&&!paused&&!document.hidden){
+        if(direction)targetX=Math.max(.1,Math.min(.9,targetX+direction*dt*.75));lunaX+=(targetX-lunaX)*Math.min(1,dt*14);nextHeart-=dt;
+        if(nextHeart<=0&&objects.length<3){objects.push({x:.13+Math.random()*.74,y:.12,speed:.105+Math.random()*.025,phase:Math.random()*6});nextHeart=1.8}
+        for(let i=objects.length-1;i>=0;i--){const item=objects[i];item.y+=item.speed*dt;const catchX=lunaX-.015;
+          if(item.y>=.745&&item.y<=.81&&Math.abs(item.x-catchX)<.095){objects.splice(i,1);collect(item);if(mode==='complete')break}
+          else if(item.y>.88)objects.splice(i,1);
+        }
+      } else if(mode==='complete')lunaX+=(targetX-lunaX)*Math.min(1,dt*6);
+      background();
+      objects.forEach(item=>{ellipse(item.x*width,item.y*height,18*width/550,18*width/550,'#fff7ed47');heart(item.x*width,item.y*height,18*width/550,'#cc7184',reducedMotion?0:Math.sin(time*2+item.phase)*.15)});
+      drawLuna(lunaX*width,height*.76,width/550*(mode==='welcome'?1.22:1.02));
+      for(let i=sparks.length-1;i>=0;i--){const p=sparks[i];if(!paused){p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=height*.33*dt}if(p.life<=0){sparks.splice(i,1);continue}ctx.globalAlpha=Math.min(p.life,1);if(reducedMotion)ellipse(p.x,p.y,p.size,p.size,p.color);else star(p.x,p.y,p.size,p.color);ctx.globalAlpha=1}
+      if(time>toastUntil)$('toast').classList.remove('visible');
+      if(paused){ctx.fillStyle='#fffaf05c';ctx.fillRect(0,0,width,height);ctx.font=`${width*.045}px Georgia`;ctx.textAlign='center';ctx.fillStyle='#496b54';ctx.fillText('A little breather…',width*.5,height*.48)}
+      requestAnimationFrame(frame);
+    }
+    function move(event){if(mode!=='playing'||paused)return;const rect=canvas.getBoundingClientRect();targetX=Math.max(.1,Math.min(.9,(event.clientX-rect.left)/rect.width))}
+    let dragging=false;
+    canvas.addEventListener('pointerdown',event=>{if(mode!=='playing')return;dragging=true;canvas.setPointerCapture(event.pointerId);move(event);canvas.focus({preventScroll:true})});
+    canvas.addEventListener('pointermove',event=>{if(event.pointerType==='mouse'||dragging)move(event)});
+    canvas.addEventListener('pointerup',()=>{dragging=false});canvas.addEventListener('pointercancel',()=>{dragging=false});
+    document.addEventListener('keydown',event=>{if(mode!=='playing'||paused||$('letter').open||event.altKey||event.metaKey||event.ctrlKey)return;if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();direction=event.key==='ArrowLeft'?-1:1}});
+    document.addEventListener('keyup',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight')direction=0});
+    window.addEventListener('blur',()=>{direction=0;if(mode==='playing')setPaused(true)});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden&&mode==='playing')setPaused(true)});
+    [['left',-1],['right',1]].forEach(([id,d])=>{const button=$(id);button.addEventListener('pointerdown',e=>{if(mode!=='playing'||paused)return;e.preventDefault();direction=d;button.setPointerCapture(e.pointerId)});for(const evt of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(evt,()=>{direction=0});button.addEventListener('click',e=>{if(e.detail===0&&mode==='playing'&&!paused)targetX=Math.max(.1,Math.min(.9,targetX+d*.12))})});
+    $('start').addEventListener('click',start);$('restart').addEventListener('click',start);$('play-again').addEventListener('click',start);$('pause').addEventListener('click',()=>setPaused(!paused));
+    $('open-letter').addEventListener('click',()=>$('letter').showModal());$('close-letter').addEventListener('click',()=>$('letter').close());
+    $('letter').addEventListener('click',e=>{if(e.target===$('letter')){const r=$('letter').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('letter').close()}});
+    $('letter').addEventListener('close',()=>{if(mode==='complete')$('open-letter').focus({preventScroll:true})});
+    $('more-joy').addEventListener('click',()=>{$('letter').close();burst(width*.5,height*.4,65);toast('A little extra sunshine, just for you. ✦');tone(1047)});
+    $('sound').addEventListener('click',async()=>{const requested=!soundOn;try{if(requested){const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)throw new Error('unavailable');if(!audio)audio=new Audio();if(audio.state==='suspended')await audio.resume()}soundOn=requested}catch{soundOn=false;toast('Luna is happy to play quietly. ♡')}$('sound').setAttribute('aria-pressed',String(soundOn));$('sound').setAttribute('aria-label',soundOn?'Turn sound off':'Turn sound on');$('sound-state').textContent=soundOn?'on':'off';$('sound-waves').setAttribute('d',soundOn?'M15 8q5 4 0 8m3-12q9 8 0 16':'m16 8 6 8m0-8-6 8');if(soundOn)tone(660)});
+    resize();requestAnimationFrame(frame);
+  })();
+  </script>
+</body>
+</html>
